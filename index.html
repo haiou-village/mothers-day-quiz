@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>媽媽是哪顆寶石？｜海鷗漁村母親節</title>
+
+<!-- Open Graph / Facebook 分享預覽 -->
+<meta property="og:type"        content="website" />
+<meta property="og:url"         content="https://haiou-village.github.io/mothers-day-quiz" />
+<meta property="og:title"       content="💎 媽媽在您心中是哪顆寶石？｜海鷗漁村母親節測驗" />
+<meta property="og:description" content="每位媽媽都是獨一無二的珍寶！8 道生活小題，找出最適合她的那顆寶石，送她最適合的漁村美味 🐟 活動期間 4/27～5/10，完成測驗即有機會獲得神秘小禮！" />
+<meta property="og:image"       content="https://i.postimg.cc/SQpwnckw/og-image.jpg" />
+<meta property="og:image:width"  content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale"      content="zh_TW" />
+<meta property="og:site_name"   content="海鷗漁村" />
+
+<!-- LINE / Twitter 預覽 -->
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content="💎 媽媽在您心中是哪顆寶石？｜海鷗漁村母親節測驗" />
+<meta name="twitter:description" content="每位媽媽都是獨一無二的珍寶！8 道生活小題，找出最適合她的那顆寶石 🐟" />
+<meta name="twitter:image"       content="https://i.postimg.cc/SQpwnckw/og-image.jpg" />
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Noto+Sans+TC:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink:     #e8a0b4;
+  --pink2:    #d4607a;
+  --rose:     #f5c6d5;
+  --cream:    #fdf5f7;
+  --lavender: #d4b8d8;
+  --purple:   #9b6baa;
+  --gold:     #c9973a;
+  --dark:     #5a2d45;
+  --muted:    #a06880;
+  --white:    #ffffff;
+  --radius:   22px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Noto Sans TC", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(232,160,180,0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 5%,  rgba(212,182,216,0.15) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 90%, rgba(232,160,180,0.14) 0%, transparent 40%),
+    radial-gradient(ellipse at 20% 85%, rgba(212,182,216,0.12) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petal {
+  position: fixed;
+  pointer-events: none;
+  font-size: 18px;
+  opacity: 0;
+  z-index: 0;
+  animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+  0%   { opacity: 0;   transform: translateY(-20px) rotate(0deg); }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.3; }
+  100% { opacity: 0;   transform: translateY(100vh) rotate(360deg); }
+}
+
+.wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.site-header {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeDown 0.9s ease both;
+}
+
+.script-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(18px, 5vw, 26px);
+  color: var(--pink2);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.brand-line { width: 28px; height: 1px; background: var(--pink); }
+.brand-text { font-size: 11px; letter-spacing: 2.5px; color: var(--muted); }
+
+.hero-gem {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+  animation: gemFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(212,96,122,0.3));
+}
+
+@keyframes gemFloat {
+  0%, 100% { transform: translateY(0) rotate(-3deg) scale(1); }
+  50%       { transform: translateY(-10px) rotate(3deg) scale(1.05); }
+}
+
+.site-header h1 {
+  font-family: "Noto Serif TC", serif;
+  font-size: clamp(26px, 6vw, 40px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.site-header h1 em { font-style: normal; color: var(--pink2); }
+.site-header p { font-size: 13px; color: var(--muted); line-height: 1.9; }
+
+.flower-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.intro-card {
+  background: white;
+  border-radius: 28px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 4px 32px rgba(212,96,122,0.08), 0 1px 8px rgba(212,96,122,0.04);
+  border: 1.5px solid rgba(232,160,180,0.25);
+  animation: fadeUp 0.7s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-card::before {
+  content: "🌸";
+  position: absolute;
+  top: -16px; right: -16px;
+  font-size: 80px; opacity: 0.06;
+  pointer-events: none;
+}
+
+.gem-parade {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 24px 0 28px;
+}
+
+.gem-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  background: linear-gradient(135deg, rgba(245,198,213,0.25), rgba(253,245,247,0.8));
+  border: 1px solid rgba(232,160,180,0.3);
+  border-radius: 14px;
+  transition: all 0.25s;
+}
+
+.gem-pill:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(245,198,213,0.5), rgba(253,245,247,1));
+  border-color: var(--pink);
+  box-shadow: 0 4px 12px rgba(212,96,122,0.12);
+}
+
+.gem-pill .g { font-size: 24px; }
+.gem-pill .n { font-size: 9px; color: var(--muted); letter-spacing: 0.5px; font-weight: 500; }
+
+.intro-desc { font-size: 14px; line-height: 2; color: var(--muted); margin-bottom: 32px; }
+
+.start-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--pink2), #b8405c);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: "Noto Serif TC", serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212,96,122,0.3);
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212,96,122,0.4);
+}
+
+.progress-wrap { margin-bottom: 24px; }
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.prog-bar { height: 6px; background: rgba(232,160,180,0.2); border-radius: 10px; overflow: hidden; }
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--pink2));
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 0 8px rgba(212,96,122,0.3);
+}
+
+.q-card {
+  background: white;
+  border: 1.5px solid rgba(232,160,180,0.25);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  margin-bottom: 16px;
+  animation: slideUp 0.45s cubic-bezier(0.4,0,0.2,1) both;
+  box-shadow: 0 4px 24px rgba(212,96,122,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.q-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rose), var(--pink), var(--lavender));
+}
+
+.q-num { font-size: 10px; letter-spacing: 3px; color: var(--pink2); margin-bottom: 16px; font-weight: 500; }
+.q-scene { font-size: 40px; display: block; margin-bottom: 14px; }
+.q-text {
+  font-family: "Noto Serif TC", serif;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(232,160,180,0.2);
+  border-radius: 14px;
+  cursor: pointer;
+  background: rgba(253,245,247,0.6);
+  transition: all 0.22s ease;
+  text-align: left;
+  width: 100%;
+  color: var(--dark);
+}
+
+.opt:hover { border-color: var(--pink); background: rgba(245,198,213,0.2); transform: translateX(4px); }
+.opt.selected {
+  border-color: var(--pink2);
+  background: linear-gradient(135deg, rgba(245,198,213,0.35), rgba(253,245,247,0.9));
+  box-shadow: 0 2px 12px rgba(212,96,122,0.12);
+}
+
+.opt-idx {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232,160,180,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  flex-shrink: 0;
+  transition: all 0.22s;
+  margin-top: 1px;
+}
+
+.opt.selected .opt-idx { background: var(--pink2); border-color: var(--pink2); color: white; }
+.opt-txt { font-size: 14px; line-height: 1.7; color: var(--dark); }
+
+.btn-next {
+  width: 100%;
+  padding: 16px;
+  background: white;
+  border: 1.5px solid rgba(212,96,122,0.35);
+  color: var(--pink2);
+  border-radius: 50px;
+  font-family: "Noto Serif TC", serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: none;
+}
+
+.btn-next.show { display: block; animation: fadeUp 0.3s ease both; }
+.btn-next:hover { background: var(--pink2); color: white; border-color: var(--pink2); transform: translateY(-2px); }
+
+.result-wrap { display: none; }
+.result-wrap.show { display: block; animation: fadeUp 0.7s ease both; }
+
+.result-gem-display { text-align: center; margin-bottom: 24px; }
+.result-gem-icon {
+  font-size: 100px;
+  display: block;
+  animation: gemBounce 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+  filter: drop-shadow(0 0 28px var(--gem-glow, rgba(212,96,122,0.4)));
+}
+
+.result-flowers {
+  font-size: 28px; opacity: 0.6;
+  display: flex; justify-content: center; gap: 6px;
+  margin-top: 8px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+@keyframes gemBounce {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.12) rotate(5deg); }
+  80%  { transform: scale(0.96) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.result-card {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(212,96,122,0.1);
+  border: 1.5px solid rgba(232,160,180,0.25);
+  margin-bottom: 16px;
+}
+
+.result-top {
+  padding: 40px 32px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-top::before {
+  content: "🌸";
+  position: absolute; top: -16px; left: -16px;
+  font-size: 100px; opacity: 0.07; transform: rotate(-20deg);
+}
+
+.result-top::after {
+  content: "🌸";
+  position: absolute; bottom: -16px; right: -16px;
+  font-size: 100px; opacity: 0.07; transform: rotate(20deg);
+}
+
+.result-label { font-family: "Dancing Script", cursive; font-size: 18px; color: rgba(90,45,69,0.65); margin-bottom: 8px; }
+.result-name { font-family: "Noto Serif TC", serif; font-size: clamp(26px, 7vw, 38px); font-weight: 900; margin-bottom: 8px; }
+.result-sub { font-size: 13px; color: rgba(90,45,69,0.6); letter-spacing: 1px; }
+
+.result-body { padding: 32px; }
+
+.result-desc { font-family: "Noto Serif TC", serif; font-size: 15px; line-height: 2; color: #6a3f55; margin-bottom: 24px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.tag { padding: 5px 14px; border-radius: 20px; font-size: 12px; letter-spacing: 0.5px; border: 1.5px solid; }
+
+.product-rec { border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1.5px solid; }
+.product-rec h3 { font-family: "Noto Serif TC", serif; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+.product-rec p { font-size: 13px; line-height: 1.8; color: var(--muted); }
+
+.steps-box {
+  background: white;
+  border: 1.5px solid rgba(232,160,180,0.25);
+  border-radius: 16px;
+  padding: 20px 20px 10px;
+  margin-bottom: 20px;
+}
+
+.steps-box-title {
+  font-size: 13px; color: var(--pink2); font-weight: 700;
+  letter-spacing: 0.5px; margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(232,160,180,0.3);
+}
+
+.step-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+
+.step-num-pill {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink2), #b8405c);
+  color: white; font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+  box-shadow: 0 2px 8px rgba(212,96,122,0.25);
+}
+
+.step-txt { font-size: 14px; color: var(--dark); line-height: 1.8; }
+
+/* ── CTA BUTTONS ── */
+.cta-fb {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 17px 24px;
+  background: linear-gradient(135deg, #1877f2, #0d5fd4);
+  color: white; border: none; border-radius: 50px;
+  font-family: "Noto Serif TC", serif; font-size: 15px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s ease; margin-bottom: 12px;
+  box-shadow: 0 4px 18px rgba(24,119,242,0.3);
+  letter-spacing: 0.5px;
+}
+.cta-fb:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(24,119,242,0.4); }
+
+.cta-shop {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 17px 24px; border-radius: 50px;
+  font-family: "Noto Serif TC", serif; font-size: 15px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.3s ease; margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--pink2), #b8405c);
+  color: white; border: none;
+  box-shadow: 0 4px 18px rgba(212,96,122,0.3);
+  letter-spacing: 0.5px;
+}
+.cta-shop:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,96,122,0.4); }
+
+.cta-retry {
+  width: 100%; padding: 14px;
+  background: transparent; border: 1.5px solid rgba(232,160,180,0.4);
+  border-radius: 50px; color: var(--muted); font-size: 13px;
+  cursor: pointer; transition: all 0.2s; margin-bottom: 16px;
+}
+
+.cta-retry:hover { border-color: var(--pink); color: var(--pink2); }
+
+.share-row { display: flex; gap: 10px; }
+.share-btn {
+  flex: 1; padding: 12px; border-radius: 14px; border: none;
+  font-size: 12px; font-weight: 500; cursor: pointer;
+  transition: all 0.2s; letter-spacing: 0.5px;
+}
+.share-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.s-fb   { background: #1877f2; color: white; }
+.s-line { background: #00b900; color: white; }
+.s-copy { background: rgba(232,160,180,0.15); color: var(--pink2); border: 1.5px solid rgba(232,160,180,0.3); }
+
+.footer { text-align: center; margin-top: 40px; font-size: 11px; color: var(--muted); letter-spacing: 1.5px; opacity: 0.6; }
+
+.toast {
+  position: fixed; bottom: 32px; left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--pink2); color: white;
+  padding: 10px 24px; border-radius: 30px;
+  font-size: 13px; font-weight: 500;
+  opacity: 0; transition: all 0.3s;
+  pointer-events: none; z-index: 99;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@keyframes fadeDown { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeUp   { from { opacity:0; transform:translateY(12px);  } to { opacity:1; transform:translateY(0); } }
+@keyframes slideUp  { from { opacity:0; transform:translateY(20px);  } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+<div class="petal" style="left:8%;animation-duration:12s;animation-delay:0s">🌸</div>
+<div class="petal" style="left:25%;animation-duration:9s;animation-delay:3s">🌺</div>
+<div class="petal" style="left:55%;animation-duration:14s;animation-delay:1s">🌸</div>
+<div class="petal" style="left:72%;animation-duration:11s;animation-delay:5s">🌷</div>
+<div class="petal" style="left:88%;animation-duration:10s;animation-delay:2s">🌸</div>
+
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="site-header">
+    <div class="script-title">Happy Mother's Day</div>
+    <div class="brand-row">
+      <span class="brand-line"></span>
+      <span class="brand-text">海鷗漁村 × 母親節 2026</span>
+      <span class="brand-line"></span>
+    </div>
+    <span class="hero-gem">💎</span>
+    <h1>媽媽在您心中<br>是哪顆<em>寶石</em>？</h1>
+    <div class="flower-row">🌸 🌺 🌸 🌷 🌸</div>
+    <p>8 道生活小題，找出她獨一無二的那顆</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="page active" id="introPage">
+    <div class="intro-card">
+      <div class="gem-parade">
+        <div class="gem-pill"><span class="g">🤍</span><span class="n">珍珠</span></div>
+        <div class="gem-pill"><span class="g">🟠</span><span class="n">琥珀</span></div>
+        <div class="gem-pill"><span class="g">❤️</span><span class="n">紅寶石</span></div>
+        <div class="gem-pill"><span class="g">💙</span><span class="n">藍寶石</span></div>
+        <div class="gem-pill"><span class="g">💚</span><span class="n">祖母綠</span></div>
+        <div class="gem-pill"><span class="g">💎</span><span class="n">鑽石</span></div>
+        <div class="gem-pill"><span class="g">🌙</span><span class="n">月光石</span></div>
+        <div class="gem-pill"><span class="g">🌸</span><span class="n">玫瑰金</span></div>
+        <div class="gem-pill"><span class="g">🟡</span><span class="n">虎眼石</span></div>
+        <div class="gem-pill"><span class="g">🪸</span><span class="n">珊瑚</span></div>
+      </div>
+      <p class="intro-desc">
+        她是怎麼叫你起床的？<br>
+        吵架之後她怎麼和好？<br>
+        從最真實的生活細節，找出她的那顆 ✨
+      </p>
+      <button class="start-btn" onclick="startQuiz()">💎 開始測驗，找出媽媽的寶石</button>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div class="page" id="quizPage">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="progText">第 1 題，共 8 題</span>
+        <span id="progPct">0%</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+    <div class="q-card" id="qCard">
+      <div class="q-num" id="qNum">Q1</div>
+      <span class="q-scene" id="qScene"></span>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="opts"></div>
+    </div>
+    <button class="btn-next" id="btnNext" onclick="nextQ()">下一題 →</button>
+  </div>
+
+  <!-- Result -->
+  <div class="page" id="resultPage">
+    <div class="result-wrap" id="resultWrap"></div>
+  </div>
+
+  <div class="footer">海鷗漁村｜現撈直送，漁村的滋味</div>
+</div>
+
+<div class="toast" id="toast">✓ 連結已複製！</div>
+
+<script>
+// ── QUESTIONS ──────────────────────────────────────────────
+const questions = [
+  {
+    scene: "⏰",
+    text: "早上你賴床不起，媽媽會怎麼叫你？",
+    opts: [
+      { text: "溫柔地掀開棉被，說「起來吃早餐喔，我幫你熱好了」", gem: "pearl" },
+      { text: "在門口碎念三次，最後自己端早餐進房間給你", gem: "coral" },
+      { text: "一把開燈，直接說「幾點了你知道嗎」然後走掉", gem: "ruby" },
+      { text: "靜靜走進來，摸你額頭確認你沒發燒才叫你", gem: "moonstone" },
+      { text: "叫你一聲就不管了，讓你自己決定要不要起來", gem: "sapphire" },
+      { text: "設三個鬧鐘，每個鬧鐘她都親自來按確認你醒了", gem: "diamond" }
+    ]
+  },
+  {
+    scene: "🍱",
+    text: "你說今天不想吃飯，媽媽的反應是？",
+    opts: [
+      { text: "馬上說「那我去幫你煮麵」，五分鐘後端來熱湯麵", gem: "pearl" },
+      { text: "皺眉頭、嘮叨說不吃飯怎麼行，但還是默默準備了稀飯", gem: "ruby" },
+      { text: "問你想吃什麼，然後去外面幫你買回來", gem: "coral" },
+      { text: "摸你額頭問是不是不舒服，叫你去躺著她來處理", gem: "moonstone" },
+      { text: "點頭說好，但冰箱裡偷偷多放了幾樣你愛吃的東西", gem: "sapphire" },
+      { text: "說好那就少吃，但把最好的那塊魚留起來等你餓了", gem: "amber" }
+    ]
+  },
+  {
+    scene: "🛒",
+    text: "跟媽媽一起去市場，她最常做什麼？",
+    opts: [
+      { text: "認識每個攤販，跟他們聊家常，順便問今天什麼最新鮮", gem: "coral" },
+      { text: "直接問老闆「今天什麼好」，有把握才出手，絕不衝動", gem: "diamond" },
+      { text: "慢慢逛，看到喜歡的就多買一點，說「放著備用」", gem: "pearl" },
+      { text: "拿出事先寫好的清單，按順序買，一樣不多一樣不少", gem: "tigereye" },
+      { text: "突然消失，找到她時她正在幫你買你上週說想吃的東西", gem: "moonstone" },
+      { text: "殺價殺得比任何人都厲害，然後買了全場最好的", gem: "ruby" }
+    ]
+  },
+  {
+    scene: "📱",
+    text: "你很久沒回家，媽媽怎麼聯絡你？",
+    opts: [
+      { text: "Line 傳一張她煮的菜的照片，只說「快回來吃」", gem: "pearl" },
+      { text: "打電話，問你吃了沒、穿夠不夠、最近怎樣，聊一個小時", gem: "coral" },
+      { text: "從不主動聯絡，但你知道她每天都在等你傳訊息", gem: "sapphire" },
+      { text: "傳訊息說「沒事，只是想到你」，然後沒有下文", gem: "moonstone" },
+      { text: "問你什麼時候回來，要你報到，同時已經在備料了", gem: "diamond" },
+      { text: "叫你弟弟妹妹問你的消息，但其實是她自己想知道", gem: "tigereye" }
+    ]
+  },
+  {
+    scene: "😤",
+    text: "你跟媽媽吵架了，她怎麼跟你和好？",
+    opts: [
+      { text: "隔天早上，桌上多了一杯你最愛喝的飲料，什麼都沒說", gem: "pearl" },
+      { text: "沒多久就開口說「算了，我也有不對的地方」", gem: "coral" },
+      { text: "不道歉，但默默幫你把衣服洗好疊好放在床上", gem: "ruby" },
+      { text: "冷戰兩天，第三天若無其事說「吃飯了」，就這樣過去了", gem: "sapphire" },
+      { text: "托爸爸來說情，說媽媽其實很擔心你", gem: "moonstone" },
+      { text: "傳給你一個很長的訊息，說清楚她的立場，但最後還是說愛你", gem: "diamond" }
+    ]
+  },
+  {
+    scene: "🎂",
+    text: "你生日那天，媽媽會怎麼做？",
+    opts: [
+      { text: "凌晨十二點傳訊息說生日快樂，然後問你要吃什麼", gem: "coral" },
+      { text: "早上起床桌上有你最愛的早餐，她說「今天特別的日子」", gem: "pearl" },
+      { text: "默默訂了你喜歡的蛋糕，但說是「隨便買的」", gem: "sapphire" },
+      { text: "把你從小到大的照片翻出來，感嘆說你長大了", gem: "amber" },
+      { text: "說「我記得那天生你有多辛苦」，然後你就被唸了十分鐘", gem: "ruby" },
+      { text: "提前一個月問你要什麼禮物，然後買得比你說的更好", gem: "diamond" }
+    ]
+  },
+  {
+    scene: "🌧️",
+    text: "你心情很差，媽媽察覺到了，她怎麼做？",
+    opts: [
+      { text: "假裝沒看出來，但悄悄幫你泡了一杯熱茶放在旁邊", gem: "moonstone" },
+      { text: "直接問「怎麼了」，然後靜靜聽你說完", gem: "sapphire" },
+      { text: "說「來，去吃東西，吃飽就好了」，然後做了一桌菜", gem: "coral" },
+      { text: "坐在你旁邊，不說話，就這樣陪著你", gem: "pearl" },
+      { text: "問清楚事情始末，然後幫你分析怎麼解決", gem: "diamond" },
+      { text: "說「這有什麼大不了」，但晚上偷偷問爸爸你還好嗎", gem: "tigereye" }
+    ]
+  },
+  {
+    scene: "✈️",
+    text: "你要出遠門，媽媽在你出發前會做什麼？",
+    opts: [
+      { text: "塞給你一包她親手做的食物，說「路上餓了吃」", gem: "pearl" },
+      { text: "叮嚀你十件事，每件都說第二遍，直到你點頭為止", gem: "ruby" },
+      { text: "前一天幫你把行李再整理一遍，偷放了常備藥進去", gem: "diamond" },
+      { text: "說「去吧去吧，注意安全」，然後站在門口目送你很久", gem: "sapphire" },
+      { text: "問你幾點到、住哪裡、要跟誰去，全部記在她的小本子上", gem: "tigereye" },
+      { text: "前一晚睡不著，但早上裝作很淡定送你出門", gem: "amber" }
+    ]
+  }
+];
+
+// ── GEM RESULTS ──────────────────────────────────────────
+const gems = {
+  pearl: {
+    icon: "🤍",
+    name: "珍珠媽媽",
+    sub: "溫潤低調，歲月越長越有光澤",
+    color: { top: "linear-gradient(160deg, #f0e0e8 0%, #d8c0cc 100%)", accent: "#7a3d5a", glow: "rgba(200,160,180,0.5)" },
+    tagColor: { bg: "rgba(200,160,180,0.15)", border: "rgba(200,160,180,0.4)", color: "#7a3d5a" },
+    prodBg: "rgba(245,198,213,0.12)",
+    prodBorder: "rgba(232,160,180,0.3)",
+    tags: ["溫柔體貼", "細心入微", "默默付出", "讓人安心"],
+    desc: "她不會大聲說愛你，但家裡每個角落都有她的溫柔痕跡——桌上永遠備好的熱茶、你床頭疊好的衣服、冰箱裡她知道你愛吃的東西。珍珠媽媽的愛，是需要靠近才能感受到的光澤，越久越珍貴。",
+    product: "午仔魚・鯛魚片",
+    productDesc: "清甜鮮嫩、溫柔不搶味，就像珍珠媽媽的愛一樣恰到好處。清蒸或煎烤皆宜，送給那個把你放在心上卻不常說出口的她。"
+  },
+  amber: {
+    icon: "🟠",
+    name: "琥珀媽媽",
+    sub: "時光把她淬煉得越來越有光澤",
+    color: { top: "linear-gradient(160deg, #f8e0b0 0%, #e0b868 100%)", accent: "#6a3a08", glow: "rgba(224,184,104,0.5)" },
+    tagColor: { bg: "rgba(220,168,96,0.15)", border: "rgba(220,168,96,0.4)", color: "#6a3a08" },
+    prodBg: "rgba(240,212,168,0.15)",
+    prodBorder: "rgba(220,168,96,0.3)",
+    tags: ["歲月沉澱", "回味無窮", "情感深厚", "難以忘懷"],
+    desc: "她身上有一種說不出的味道——不是香水，是歲月和記憶。她記得你每一個生日許的願望、每一次哭泣的原因、每一道你說好吃的菜。琥珀媽媽把時光封存其中，讓你長大後越想越捨不得。",
+    product: "蒲燒鰻・斑頭魚",
+    productDesc: "香氣深沉、滋味複雜，愈品愈有層次，如同琥珀媽媽帶給你的記憶，是那種一口就想起家的味道。"
+  },
+  ruby: {
+    icon: "❤️",
+    name: "紅寶石媽媽",
+    sub: "熱情直率，愛得轟轟烈烈",
+    color: { top: "linear-gradient(160deg, #f8c0c8 0%, #e08090 100%)", accent: "#6a1020", glow: "rgba(212,80,106,0.5)" },
+    tagColor: { bg: "rgba(212,80,106,0.12)", border: "rgba(212,80,106,0.35)", color: "#7a1a2a" },
+    prodBg: "rgba(240,160,168,0.1)",
+    prodBorder: "rgba(212,80,106,0.25)",
+    tags: ["熱情直率", "說到做到", "愛恨分明", "護家如山"],
+    desc: "她說話直接，愛你也直接。你做對了她比誰都驕傲，你做錯了她比誰都急。紅寶石媽媽的愛沒有遮掩、沒有修飾，有時讓你覺得太熱、太燙，但等你長大了才懂——那是最真實的溫度。",
+    product: "紅魚・一夜干（蒜頭口味）",
+    productDesc: "鮮味濃郁、個性鮮明，不需要多餘調味就已足夠有力，就像紅寶石媽媽，她的存在本身就是最強的調味料。"
+  },
+  sapphire: {
+    icon: "💙",
+    name: "藍寶石媽媽",
+    sub: "沉靜深邃，話不多但懂你最深",
+    color: { top: "linear-gradient(160deg, #b8d0f0 0%, #80a8e0 100%)", accent: "1e3d6a", glow: "rgba(96,128,192,0.5)" },
+    tagColor: { bg: "rgba(96,128,192,0.12)", border: "rgba(96,128,192,0.35)", color: "#203060" },
+    prodBg: "rgba(168,192,232,0.1)",
+    prodBorder: "rgba(96,128,192,0.25)",
+    tags: ["沉靜內斂", "尊重自由", "深不見底", "理性溫柔"],
+    desc: "她不多話，但每句話都說在點上。她給你空間、給你自由，不逼你報告行程、不追問你在想什麼——但她其實什麼都知道。藍寶石媽媽的愛是深海型的，越深越穩，讓你不管漂多遠都能找到方向。",
+    product: "大目鮪魚腹肉・比目魚",
+    productDesc: "深海孕育的鮮甜，低調不張揚卻是真正的頂級食材，正如藍寶石媽媽，安靜之中藏著最深的珍貴。"
+  },
+  emerald: {
+    icon: "💚",
+    name: "祖母綠媽媽",
+    sub: "生命力旺盛，把家打理得充滿朝氣",
+    color: { top: "linear-gradient(160deg, #b8e8c8 0%, #80c898 100%)", accent: "#1a5030", glow: "rgba(80,168,112,0.5)" },
+    tagColor: { bg: "rgba(80,168,112,0.12)", border: "rgba(80,168,112,0.35)", color: "#1a5030" },
+    prodBg: "rgba(168,216,184,0.1)",
+    prodBorder: "rgba(80,168,112,0.25)",
+    tags: ["活力充沛", "井井有條", "樂觀向上", "帶動全家"],
+    desc: "家裡因為她而充滿生氣——她是第一個起床的人，也是把所有事情安排好的人。祖母綠媽媽有用不完的能量，她讓家裡有秩序、有笑聲，你有時覺得她很煩，但少了她，家就像少了陽光的花園。",
+    product: "草蝦・吻仔魚",
+    productDesc: "鮮活彈牙、充滿生命力，最適合喜歡料理、把廚房顧得井然有序的祖母綠媽媽，幫她備好最新鮮的食材。"
+  },
+  diamond: {
+    icon: "💎",
+    name: "鑽石媽媽",
+    sub: "歷經千錘百鍊，是全家最強的後盾",
+    color: { top: "linear-gradient(160deg, #d8eaf8 0%, #a0c4e8 100%)", accent: "#204060", glow: "rgba(144,184,216,0.5)" },
+    tagColor: { bg: "rgba(144,184,216,0.15)", border: "rgba(144,184,216,0.4)", color: "#204060" },
+    prodBg: "rgba(216,232,248,0.15)",
+    prodBorder: "rgba(144,184,216,0.3)",
+    tags: ["堅韌無比", "思慮周全", "值得依靠", "面面俱到"],
+    desc: "她把所有事情都想在你前面——行李裡的備藥、冰箱裡多備的食材、你說過一次就記住的生日願望。鑽石媽媽不是天生這樣，是被生活磨出來的。她越磨越亮，是全家最硬、也最閃的那顆。",
+    product: "龍膽石斑魚・龍虎石斑魚",
+    productDesc: "頂級食材中的頂級，肉質扎實飽滿，送給那個把全家扛在肩上、什麼都考慮周到的鑽石媽媽，她值得最好的。"
+  },
+  moonstone: {
+    icon: "🌙",
+    name: "月光石媽媽",
+    sub: "溫柔如月光，默默照亮你卻不求回報",
+    color: { top: "linear-gradient(160deg, #ddd0f0 0%, #b0a0d8 100%)", accent: "#402060", glow: "rgba(160,144,208,0.5)" },
+    tagColor: { bg: "rgba(160,144,208,0.12)", border: "rgba(160,144,208,0.35)", color: "#402060" },
+    prodBg: "rgba(216,208,240,0.1)",
+    prodBorder: "rgba(160,144,208,0.25)",
+    tags: ["細膩敏感", "感同身受", "靜靜守護", "從不邀功"],
+    desc: "她從不說「我為你做了多少」，只是在你需要的時候悄悄出現——那杯沒說什麼就放在你旁邊的熱茶、那個沒問你怎麼了卻陪著你坐著的夜晚。月光石媽媽的愛是最安靜的那種，但少了她，你的世界就暗了一半。",
+    product: "金目鱸魚片・海鱸魚",
+    productDesc: "細緻清甜、鮮味內斂，不需要濃厚醬料就已美味，正如月光石媽媽，她的好你需要靜下來才能完整感受。"
+  },
+  rosegold: {
+    icon: "🌸",
+    name: "玫瑰金媽媽",
+    sub: "浪漫細膩，把生活每個角落都照顧得溫柔",
+    color: { top: "linear-gradient(160deg, #f0c8d8 0%, #d898b0 100%)", accent: "#6a2040", glow: "rgba(208,128,152,0.5)" },
+    tagColor: { bg: "rgba(208,128,152,0.12)", border: "rgba(208,128,152,0.35)", color: "#6a2040" },
+    prodBg: "rgba(240,192,208,0.1)",
+    prodBorder: "rgba(208,128,152,0.25)",
+    tags: ["浪漫細膩", "品味獨特", "重視儀式", "愛美愛生活"],
+    desc: "她把生活過得像一首詩——花瓶裡永遠有花、節日一定有儀式感、你的生日她比你更期待。玫瑰金媽媽相信美好的細節讓生活值得，也讓你從小就知道，愛是可以被好好表達、好好感受的。",
+    product: "智利鮭魚片・一夜干（薄鹽口味）",
+    productDesc: "色澤粉嫩、賣相精緻，擺上桌就是一道令人心動的料理，最適合有美感、重視生活質感的玫瑰金媽媽。"
+  },
+  tigereye: {
+    icon: "🟡",
+    name: "虎眼石媽媽",
+    sub: "眼神銳利、洞察一切，瞞不過她半秒",
+    color: { top: "linear-gradient(160deg, #f0e0a8 0%, #d0b858 100%)", accent: "#5a3a08", glow: "rgba(192,160,64,0.5)" },
+    tagColor: { bg: "rgba(192,160,64,0.12)", border: "rgba(192,160,64,0.35)", color: "#5a3a08" },
+    prodBg: "rgba(232,208,152,0.1)",
+    prodBorder: "rgba(192,160,64,0.25)",
+    tags: ["觀察入微", "邏輯清晰", "計畫周全", "不動聲色"],
+    desc: "她知道你所有的小心思，即使你什麼都沒說。你說沒事，她已經在幫你查解決方法；你說不餓，她已經把你愛吃的留起來。虎眼石媽媽用一種你察覺不到的方式守護你，讓你覺得世界上有人永遠比你更了解你自己。",
+    product: "一夜干（味噌口味）・珍珠石斑魚",
+    productDesc: "滋味層次豐富、越吃越有深度，就像虎眼石媽媽，你以為你懂她，但她懂你更多。"
+  },
+  coral: {
+    icon: "🪸",
+    name: "珊瑚媽媽",
+    sub: "溫暖熱鬧，把所有人都聚在身邊",
+    color: { top: "linear-gradient(160deg, #f8c0a0 0%, #e09068 100%)", accent: "#6a2808", glow: "rgba(208,112,64,0.5)" },
+    tagColor: { bg: "rgba(208,112,64,0.12)", border: "rgba(208,112,64,0.35)", color: "#6a2808" },
+    prodBg: "rgba(240,184,152,0.1)",
+    prodBorder: "rgba(208,112,64,0.25)",
+    tags: ["熱情好客", "愛熱鬧", "重視家人", "笑聲最大"],
+    desc: "家因為她而熱鬧，餐桌因為她而豐盛。她認識所有鄰居、記得每個朋友的名字，朋友來了一定要多留一個人的飯。珊瑚媽媽讓「家」不只是一個地方，而是一種讓人想一直回去的感覺。",
+    product: "草蝦・鯛魚片",
+    productDesc: "鮮甜飽滿、人見人愛，最適合擺上大桌讓全家一起享用，送給那個把所有人都暖在身邊的珊瑚媽媽。"
+  }
+};
+
+// ── STATE ──────────────────────────────────────────────────
+let scores = {};
+let curQ = 0;
+let curSel = null;
+let answered = false;
+
+Object.keys(gems).forEach(g => scores[g] = 0);
+
+// Shuffle array
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Shuffle options on load
+const shuffledQuestions = questions.map(q => ({ ...q, opts: shuffle([...q.opts]) }));
+
+function startQuiz() {
+  document.getElementById('introPage').classList.remove('active');
+  document.getElementById('quizPage').classList.add('active');
+  loadQ(0);
+}
+
+function loadQ(idx) {
+  answered = false;
+  curSel = null;
+
+  const q = shuffledQuestions[idx];
+  const pct = Math.round((idx / shuffledQuestions.length) * 100);
+
+  document.getElementById('progText').textContent = `第 ${idx + 1} 題，共 ${shuffledQuestions.length} 題`;
+  document.getElementById('progPct').textContent = pct + '%';
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('qNum').textContent = 'Q' + (idx + 1);
+  document.getElementById('qScene').textContent = q.scene;
+  document.getElementById('qText').textContent = q.text;
+
+  const letters = ['A','B','C','D','E','F'];
+  const container = document.getElementById('opts');
+  container.innerHTML = '';
+
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = `<div class="opt-idx">${letters[i]}</div><div class="opt-txt">${opt.text}</div>`;
+    btn.onclick = () => pick(btn, opt.gem, container);
+    container.appendChild(btn);
+  });
+
+  const nx = document.getElementById('btnNext');
+  nx.classList.remove('show');
+  nx.textContent = idx === shuffledQuestions.length - 1 ? '查看結果 ✨' : '下一題 →';
+
+  const card = document.getElementById('qCard');
+  card.style.animation = 'none';
+  card.offsetHeight;
+  card.style.animation = 'slideUp 0.4s cubic-bezier(0.4,0,0.2,1) both';
+}
+
+function pick(btn, gem, container) {
+  container.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  curSel = gem;
+  answered = true;
+  document.getElementById('btnNext').classList.add('show');
+}
+
+function nextQ() {
+  if (!answered || !curSel) return;
+  scores[curSel]++;
+  curQ++;
+  if (curQ >= shuffledQuestions.length) showResult();
+  else loadQ(curQ);
+}
+
+function showResult() {
+  const winner = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+  const r = gems[winner];
+
+  // ── 計數器 +1 ──
+  const COUNTER_KEY = 'seagull_quiz_count';
+  const prev = parseInt(localStorage.getItem(COUNTER_KEY) || '0');
+  localStorage.setItem(COUNTER_KEY, prev + 1);
+
+  document.getElementById('quizPage').classList.remove('active');
+  document.getElementById('resultPage').classList.add('active');
+
+  const tagsHTML = r.tags.map(t =>
+    `<span class="tag" style="background:${r.tagColor.bg};border-color:${r.tagColor.border};color:${r.tagColor.color}">${t}</span>`
+  ).join('');
+
+  // FB 活動貼文網址（請貼文發布後換成真實網址）
+  const FB_POST_URL = 'https://www.facebook.com/Fishow/';
+
+  document.getElementById('resultWrap').innerHTML = `
+    <div class="gem-badge">
+      <span class="gem-icon-big" style="--gem-glow:${r.color.glow}">${r.icon}</span>
+    </div>
+    <div class="result-card">
+      <div class="result-top" style="background:${r.color.top}">
+        <div class="result-label">你的媽媽是</div>
+        <div class="result-name" style="color:${r.color.accent}">${r.name}</div>
+        <div class="result-sub">${r.sub}</div>
+      </div>
+      <div class="result-body">
+        <div class="tags">${tagsHTML}</div>
+        <div class="result-desc">${r.desc}</div>
+        <div class="product-rec" style="background:${r.prodBg};border-color:${r.prodBorder}">
+          <h3 style="color:${r.color.accent}">🎁 母親節推薦商品｜<span style="color:var(--muted);font-weight:400;font-size:13px">${r.product}</span></h3>
+          <p>${r.productDesc}</p>
+        </div>
+
+        <div class="steps-box">
+          <div class="steps-box-title">🎀 領取神秘小禮，完成以下兩步驟</div>
+          <div class="step-row">
+            <div class="step-num-pill">1</div>
+            <div class="step-txt">前往臉書貼文，留言「我媽媽是 <strong style="color:${r.tagColor.color}">${r.name}</strong>！」</div>
+          </div>
+          <div class="step-row">
+            <div class="step-num-pill">2</div>
+            <div class="step-txt">截圖留言畫面，傳送到 <a href="https://lin.ee/v4WQITv" target="_blank" style="color:#00b900;font-weight:700;">海鷗漁村 LINE 官方帳號</a></div>
+          </div>
+        </div>
+        </div>
+
+        <!-- 主要 CTA：去臉書留言 -->
+        <a href="${FB_POST_URL}" target="_blank" class="cta-fb">📘 前往臉書貼文留言</a>
+
+        <!-- 購買連結 -->
+        <a href="https://m.ccat.com.tw/3443/ProductList" target="_blank" class="cta-shop">
+          🛒 立即選購 → 海鷗漁村
+        </a>
+
+        <button class="cta-retry" onclick="retryQuiz()">再測一次</button>
+        <div class="share-row">
+          <button class="share-btn s-fb" onclick="smartShare('${r.name}','${r.sub}')" id="smartShareBtn">📤 分享</button>
+          <button class="share-btn s-copy" onclick="copyLink()">🔗 複製連結</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('resultWrap').classList.add('show');
+
+  // 根據裝置更新分享按鈕文字
+  setTimeout(() => {
+    const btn = document.getElementById('smartShareBtn');
+    if (btn) {
+      btn.textContent = isMobile() ? '📤 分享給朋友' : '📘 分享到 FB';
+    }
+  }, 100);
+}
+
+function retryQuiz() {
+  Object.keys(scores).forEach(k => scores[k] = 0);
+  curQ = 0; curSel = null; answered = false;
+  document.getElementById('resultPage').classList.remove('active');
+  document.getElementById('resultWrap').classList.remove('show');
+  document.getElementById('resultWrap').innerHTML = '';
+  document.getElementById('quizPage').classList.add('active');
+  loadQ(0);
+}
+
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
+
+function smartShare(name, sub) {
+  const shareUrl = 'https://haiou-village.github.io/mothers-day-quiz';
+  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎`;
+
+  if (isMobile() && navigator.share) {
+    // 手機：使用原生分享選單
+    navigator.share({
+      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
+      text: shareText,
+      url: shareUrl
+    }).catch(() => copyLink());
+  } else {
+    // 電腦：開啟 Facebook 分享
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+      '_blank', 'width=600,height=400'
+    );
+  }
+}
+
+function shareFB() {
+  const shareUrl = 'https://haiou-village.github.io/mothers-day-quiz';
+  window.open(
+    'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+    '_blank', 'width=600,height=400'
+  );
+}
+
+function shareLINE(name, sub) {
+  window.open('https://lin.ee/v4WQITv', '_blank');
+}
+
+function nativeShare(name, sub) {
+  smartShare(name, sub);
+}
+
+function copyLink() {
+  const url = 'https://haiou-village.github.io/mothers-day-quiz';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast());
+  } else {
+    const el = document.createElement('textarea');
+    el.value = url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast();
+  }
+}
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>
