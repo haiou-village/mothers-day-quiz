@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海鷗漁村｜母親節寶石測驗活動</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sand: #f5ede0;
+  --sand2: #ede0cc;
+  --warm: #c8853a;
+  --warm2: #a86828;
+  --dark: #2c1a0e;
+  --dark2: #3d2510;
+  --muted: #8a6a4a;
+  --light: #fdf8f2;
+  --pearl: #e8dfd0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ── TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(200,133,58,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200,133,58,0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #fdf8f2 0%, #f5ede0 60%, #ede0cc 100%);
+  z-index: 1;
+}
+
+/* Wave decoration top */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--warm) 0px, var(--warm) 20px, var(--warm2) 20px, var(--warm2) 40px);
+}
+
+/* Bottom wave */
+.wave-bottom {
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+  animation: heroIn 1s ease both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  animation: heroIn 1s 0.1s ease both;
+}
+
+.brand-line { width: 28px; height: 1px; background: var(--warm); opacity: 0.6; }
+
+.brand-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--warm);
+  font-weight: 500;
+}
+
+.hero-kv {
+  font-size: 72px;
+  display: block;
+  margin-bottom: 24px;
+  animation: float 5s ease-in-out infinite, heroIn 1s 0.2s ease both;
+  filter: drop-shadow(0 8px 16px rgba(200,133,58,0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.hero-eyebrow {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  animation: heroIn 1s 0.3s ease both;
+}
+
+.hero-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(32px, 8vw, 56px);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--dark);
+  margin-bottom: 20px;
+  animation: heroIn 1s 0.35s ease both;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--warm);
+  position: relative;
+}
+
+.hero-title em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 0; right: 0;
+  height: 3px;
+  background: var(--warm);
+  opacity: 0.3;
+  border-radius: 2px;
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--muted);
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: heroIn 1s 0.4s ease both;
+}
+
+.gem-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+  animation: heroIn 1s 0.5s ease both;
+}
+
+.gem-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(200,133,58,0.2);
+  border-radius: 30px;
+  font-size: 12px;
+  color: var(--dark2);
+  backdrop-filter: blur(4px);
+  transition: all 0.25s;
+}
+
+.gem-chip:hover {
+  background: rgba(200,133,58,0.08);
+  border-color: rgba(200,133,58,0.4);
+  transform: translateY(-2px);
+}
+
+.gem-chip span { font-size: 16px; }
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: heroIn 1s 0.6s ease both;
+}
+
+.cta-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 48px;
+  background: var(--warm);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(200,133,58,0.3), 0 1px 4px rgba(200,133,58,0.2);
+}
+
+.cta-main:hover {
+  background: var(--warm2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(200,133,58,0.4);
+}
+
+.cta-hint {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* Floating gems */
+.floater {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.15;
+  font-size: 40px;
+  animation: drift linear infinite;
+  z-index: 2;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+  50% { opacity: 0.2; }
+  100% { transform: translateY(-100px) rotate(20deg); opacity: 0; }
+}
+
+/* ── SECTION BASE ── */
+section { position: relative; z-index: 1; }
+
+.section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  background: var(--sand);
+  padding: 80px 0;
+  position: relative;
+}
+
+.how::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(200,133,58,0.08) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.s-line { width: 24px; height: 2px; background: var(--warm); border-radius: 1px; }
+
+.s-text {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--warm);
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+  line-height: 1.4;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-card {
+  background: white;
+  border: 1px solid rgba(200,133,58,0.15);
+  border-radius: 20px;
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(200,133,58,0.12);
+}
+
+.step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--warm);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+
+.step-icon { font-size: 28px; display: block; margin-bottom: 12px; }
+
+.step-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.step-desc { font-size: 13px; line-height: 1.8; color: var(--muted); }
+
+/* connector arrow */
+.step-card:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--warm);
+  font-size: 18px;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .step-card:not(:last-child)::after { display: none; }
+}
+
+/* ── RULES ── */
+.rules {
+  background: var(--light);
+  padding: 80px 0;
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) { .rules-grid { grid-template-columns: 1fr; } }
+
+.rule-item {
+  background: white;
+  border: 1px solid rgba(200,133,58,0.12);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  transition: all 0.25s;
+}
+
+.rule-item:hover {
+  border-color: rgba(200,133,58,0.3);
+  box-shadow: 0 4px 16px rgba(200,133,58,0.08);
+}
+
+.rule-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  background: rgba(200,133,58,0.08);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.rule-content h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.rule-content p { font-size: 13px; line-height: 1.8; color: var(--muted); }
+
+/* ── GEM SHOWCASE ── */
+.gems-sec {
+  background: var(--sand);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gems-sec::after {
+  content: '💎';
+  position: absolute;
+  right: -20px; bottom: -20px;
+  font-size: 160px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.gems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.gem-card {
+  background: white;
+  border: 1px solid rgba(200,133,58,0.15);
+  border-radius: 16px;
+  padding: 20px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gem-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 16px;
+}
+
+.gem-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(200,133,58,0.15);
+}
+
+.gem-card:hover::before { opacity: 1; }
+
+.gc-icon { font-size: 36px; display: block; margin-bottom: 10px; }
+
+.gc-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.gc-trait { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+.gc-q { font-size: 11px; color: var(--warm); margin-top: 8px; opacity: 0; transition: opacity 0.2s; }
+.gem-card:hover .gc-q { opacity: 1; }
+
+/* ── PRIZE ── */
+.prize {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.prize::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(200,133,58,0.1) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.prize-deco {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,133,58,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.prize-inner { position: relative; z-index: 1; }
+
+.prize .section-label .s-text { color: #c9a96e; }
+.prize .s-line { background: #c9a96e; }
+
+.prize .section-title { color: white; }
+
+.prize-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.prize-card {
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  transition: all 0.3s;
+}
+
+.prize-card:hover {
+  background: rgba(201,169,110,0.06);
+  border-color: rgba(201,169,110,0.4);
+  transform: translateY(-4px);
+}
+
+.prize-icon { font-size: 40px; display: block; margin-bottom: 16px; }
+
+.prize-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #c9a96e;
+  margin-bottom: 8px;
+}
+
+.prize-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.prize-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+/* ── PERIOD ── */
+.period {
+  background: var(--sand2);
+  padding: 48px 0;
+}
+
+.period-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.period-info h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.period-info p { font-size: 14px; color: var(--muted); }
+
+.period-date {
+  background: white;
+  border: 1px solid rgba(200,133,58,0.2);
+  border-radius: 16px;
+  padding: 16px 28px;
+  text-align: center;
+}
+
+.pd-label { font-size: 10px; letter-spacing: 2px; color: var(--warm); margin-bottom: 4px; }
+
+.pd-date {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* ── CTA BOTTOM ── */
+.cta-section {
+  background: linear-gradient(180deg, var(--sand) 0%, var(--light) 100%);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-section .hero-title { font-size: clamp(24px, 5vw, 36px); margin-bottom: 16px; }
+.cta-section .hero-desc { margin-bottom: 36px; }
+
+.cta-pair {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--warm);
+  border: 1.5px solid var(--warm);
+  border-radius: 50px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+  background: rgba(200,133,58,0.06);
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #c9a96e;
+  margin-bottom: 8px;
+}
+
+.footer-sub { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+
+/* ── NOTICE ── */
+.notice {
+  background: rgba(200,133,58,0.06);
+  border: 1px solid rgba(200,133,58,0.15);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 40px;
+}
+
+.notice h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--warm);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.notice ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.notice li {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+}
+
+.notice li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  color: var(--warm);
+}
+
+/* ── COUNTER BAR ── */
+.counter-bar {
+  background: var(--dark);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.counter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #c9a96e;
+  min-width: 48px;
+  text-align: center;
+}
+
+.counter-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.counter-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ── COUNTDOWN ── */
+.countdown-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cd-block {
+  text-align: center;
+}
+
+.cd-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #c9a96e;
+  display: block;
+}
+
+.cd-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+}
+
+.cd-sep {
+  color: rgba(201,169,110,0.4);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY COUNTER BAR -->
+<div class="counter-bar">
+  <div class="counter-item">
+    <div class="counter-num" id="quizCount">0</div>
+    <div class="counter-label">已有人<br>完成測驗</div>
+  </div>
+  <div class="counter-divider"></div>
+  <div class="counter-item">
+    <div class="countdown-wrap">
+      <div class="cd-block"><span class="cd-num" id="cdDay">--</span><span class="cd-label">天</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdHour">--</span><span class="cd-label">時</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdMin">--</span><span class="cd-label">分</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdSec">--</span><span class="cd-label">秒</span></div>
+    </div>
+    <div class="counter-label">距離活動結束</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- floating decorations -->
+  <div class="floater" style="left:8%;top:25%;animation-duration:8s;animation-delay:0s">🤍</div>
+  <div class="floater" style="left:88%;top:35%;animation-duration:10s;animation-delay:2s">💎</div>
+  <div class="floater" style="left:15%;top:65%;animation-duration:7s;animation-delay:4s">❤️</div>
+  <div class="floater" style="left:80%;top:70%;animation-duration:9s;animation-delay:1s">💙</div>
+  <div class="floater" style="left:50%;top:15%;animation-duration:11s;animation-delay:3s">🟠</div>
+
+  <div class="hero-inner">
+    <div class="brand-tag">
+      <span class="brand-line"></span>
+      <span class="brand-text">海鷗漁村 × 母親節 2026</span>
+      <span class="brand-line"></span>
+    </div>
+
+    <span class="hero-kv">🐟</span>
+
+    <p class="hero-eyebrow">枋寮漁村直送・現撈鮮魚</p>
+
+    <h1 class="hero-title">
+      媽媽在您心中是哪顆<em>寶石</em>？<br>送她最適合的美味
+    </h1>
+
+    <p class="hero-desc">
+      每位媽媽都是獨一無二的珍寶<br>
+      完成測驗 → 臉書留言 → 截圖傳 LINE<br>
+      即贈價值 150 元以上神秘小禮一份 🎁
+    </p>
+
+    <div class="gem-row">
+      <div class="gem-chip"><span>🤍</span>珍珠</div>
+      <div class="gem-chip"><span>❤️</span>紅寶石</div>
+      <div class="gem-chip"><span>💙</span>藍寶石</div>
+      <div class="gem-chip"><span>💎</span>鑽石</div>
+      <div class="gem-chip"><span>🟠</span>琥珀</div>
+      <div class="gem-chip"><span>💚</span>祖母綠</div>
+    </div>
+
+    <div class="cta-group">
+      <a href="index.html" class="cta-main">
+        ✨ 立即測驗，找出媽媽的寶石
+      </a>
+      <span class="cta-hint">測驗完成後，回來留言參加抽獎</span>
+    </div>
+  </div>
+
+  <svg class="wave-bottom" viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,20 1440,30 L1440,60 L0,60 Z" fill="#f5ede0"/>
+  </svg>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-inner reveal">
+    <div class="section-label">
+      <span class="s-line"></span>
+      <span class="s-text">活動流程</span>
+    </div>
+    <h2 class="section-title">四步驟，輕鬆獲得小禮</h2>
+
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <span class="step-icon">💎</span>
+        <div class="step-title">完成寶石測驗</div>
+        <p class="step-desc">點擊上方按鈕，回答 8 道生活化問題，找出媽媽最像哪顆寶石，單筆消費滿 2,500 享冷凍宅配免運。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <span class="step-icon">💬</span>
+        <div class="step-title">臉書貼文留言</div>
+        <p class="step-desc">前往海鷗漁村臉書活動貼文，在底下留言「我媽媽是什麼寶石媽媽？」</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <span class="step-icon">📲</span>
+        <div class="step-title">截圖傳到 LINE</div>
+        <p class="step-desc">將臉書留言截圖，傳送到海鷗漁村 LINE 官方帳號，即完成參加。</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <span class="step-icon">🎁</span>
+        <div class="step-title">獲得神秘小禮</div>
+        <p class="step-desc">確認後即贈價值 150 元以上品項神秘小禮一份，下單時一起出貨！</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="rules">
+  <div class="section-inner reveal">
+    <div class="section-label">
+      <span class="s-line"></span>
+      <span class="s-text">活動說明</span>
+    </div>
+    <h2 class="section-title">活動內容與規則</h2>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <div class="rule-icon">📅</div>
+        <div class="rule-content">
+          <h3>活動期間</h3>
+          <p>2026 年 4 月 27 日 至 5 月 10 日止，逾期恕不受理。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🚚</div>
+        <div class="rule-content">
+          <h3>滿額免運</h3>
+          <p>活動期間單筆消費滿 NT$2,500，即享冷凍宅配免運優惠。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">💬</div>
+        <div class="rule-content">
+          <h3>留言方式</h3>
+          <p>前往海鷗漁村臉書活動貼文，在留言處寫下「我媽媽是什麼寶石媽媽？」即可參加。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">📲</div>
+        <div class="rule-content">
+          <h3>傳送截圖</h3>
+          <p>將臉書留言截圖，傳送至海鷗漁村 LINE 官方帳號，完成後即確認資格。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🎁</div>
+        <div class="rule-content">
+          <h3>神秘小禮</h3>
+          <p>完成以上步驟，即贈價值 150 元以上品項神秘小禮一份，隨訂單一起出貨。</p>
+        </div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon">🐟</div>
+        <div class="rule-content">
+          <h3>商品推薦</h3>
+          <p>測驗結果會依媽媽的寶石類型，推薦最適合的漁村海鮮，讓你送禮不踩雷。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <h4>注意事項</h4>
+      <ul>
+        <li>每人限參加一次，重複留言不列入計算。</li>
+        <li>神秘小禮隨購買訂單出貨，需完成購買方可獲贈。</li>
+        <li>本活動限寄送臺灣本島及澎湖、金門、馬祖地區。</li>
+        <li>海鮮以急速冷凍配送，請確保有人在場收件。</li>
+        <li>本活動保留最終修改與解釋權，如有疑問請私訊 LINE 官方帳號。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GEM SHOWCASE -->
+<section class="gems-sec">
+  <div class="section-inner reveal">
+    <div class="section-label">
+      <span class="s-line"></span>
+      <span class="s-text">你的媽媽是哪一顆</span>
+    </div>
+    <h2 class="section-title">十種寶石，十種媽媽</h2>
+
+    <div class="gems-grid">
+      <div class="gem-card">
+        <span class="gc-icon">🤍</span>
+        <div class="gc-name">珍珠媽媽</div>
+        <div class="gc-trait">溫潤低調<br>越久越有光澤</div>
+        <div class="gc-q">→ 午仔魚・鯛魚片</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">🟠</span>
+        <div class="gc-name">琥珀媽媽</div>
+        <div class="gc-trait">時光封存<br>一生難忘的味道</div>
+        <div class="gc-q">→ 蒲燒鰻・斑頭魚</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">❤️</span>
+        <div class="gc-name">紅寶石媽媽</div>
+        <div class="gc-trait">熱情直率<br>愛得轟轟烈烈</div>
+        <div class="gc-q">→ 紅魚・一夜干蒜頭</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">💙</span>
+        <div class="gc-name">藍寶石媽媽</div>
+        <div class="gc-trait">沉靜深邃<br>懂你最深</div>
+        <div class="gc-q">→ 鮪魚腹肉・比目魚</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">💚</span>
+        <div class="gc-name">祖母綠媽媽</div>
+        <div class="gc-trait">生命力旺盛<br>把家顧得井井有條</div>
+        <div class="gc-q">→ 草蝦・吻仔魚</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">💎</span>
+        <div class="gc-name">鑽石媽媽</div>
+        <div class="gc-trait">千錘百鍊<br>全家最強後盾</div>
+        <div class="gc-q">→ 龍膽石斑・龍虎石斑</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">🌙</span>
+        <div class="gc-name">月光石媽媽</div>
+        <div class="gc-trait">溫柔如月光<br>默默照亮你</div>
+        <div class="gc-q">→ 金目鱸・海鱸魚</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">🌸</span>
+        <div class="gc-name">玫瑰金媽媽</div>
+        <div class="gc-trait">浪漫細膩<br>把生活過得像詩</div>
+        <div class="gc-q">→ 智利鮭魚・一夜干薄鹽</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">🟡</span>
+        <div class="gc-name">虎眼石媽媽</div>
+        <div class="gc-trait">眼神銳利<br>瞞不過她半秒</div>
+        <div class="gc-q">→ 一夜干味噌・珍珠石斑</div>
+      </div>
+      <div class="gem-card">
+        <span class="gc-icon">🪸</span>
+        <div class="gc-name">珊瑚媽媽</div>
+        <div class="gc-trait">溫暖熱鬧<br>把所有人聚在身邊</div>
+        <div class="gc-q">→ 草蝦・鯛魚片</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIZE -->
+<section class="prize">
+  <div class="prize-deco"></div>
+  <div class="section-inner prize-inner reveal">
+    <div class="section-label">
+      <span class="s-line"></span>
+      <span class="s-text">抽獎好禮</span>
+    </div>
+    <h2 class="section-title">參加就送！神秘小禮</h2>
+
+    <div class="prize-cards">
+      <div class="prize-card">
+        <span class="prize-icon">🎁</span>
+        <div class="prize-label">所有完成者皆可獲得</div>
+        <div class="prize-name">神秘小禮一份</div>
+        <p class="prize-desc">價值 150 元以上海鷗漁村指定品項<br>隨訂單出貨，驚喜不說破 🤫</p>
+      </div>
+      <div class="prize-card">
+        <span class="prize-icon">🚚</span>
+        <div class="prize-label">活動期間限定</div>
+        <div class="prize-name">滿額免運優惠</div>
+        <p class="prize-desc">單筆消費滿 NT$2,500<br>享冷凍宅配免運，直送到家</p>
+      </div>
+      <div class="prize-card">
+        <span class="prize-icon">🐟</span>
+        <div class="prize-label">測驗完成後</div>
+        <div class="prize-name">專屬商品推薦</div>
+        <p class="prize-desc">依媽媽的寶石類型<br>推薦最適合她的漁村海鮮</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERIOD -->
+<section class="period">
+  <div class="section-inner">
+    <div class="period-inner reveal">
+      <div class="period-info">
+        <h3>🗓️ 活動期間</h3>
+        <p>把握時間！限時優惠只到母親節當天</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div class="period-date">
+          <div class="pd-label">活動開始</div>
+          <div class="pd-date">4 月 27 日</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--warm);font-size:20px;">→</div>
+        <div class="period-date">
+          <div class="pd-label">活動截止</div>
+          <div class="pd-date">5 月 10 日</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-section">
+  <div class="section-inner reveal">
+    <h2 class="hero-title" style="font-family:'Noto Serif TC',serif;">
+      還沒測驗嗎？<br>快找出媽媽的那顆寶石
+    </h2>
+    <p class="hero-desc">
+      8 道生活化的小問題，1 分鐘找到答案<br>
+      送她最懂她的那份漁村心意 🎣
+    </p>
+    <div class="cta-pair">
+      <a href="index.html" class="cta-main">✨ 立即測驗</a>
+      <a href="https://m.ccat.com.tw/3443/ProductList" target="_blank" class="cta-secondary">🛒 瀏覽全部商品</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">海鷗漁村｜現撈海鮮</div>
+  <div class="footer-sub">枋寮漁村直送 · 急速冷凍 · 品質保證</div>
+</footer>
+
+<script>
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+// ── QUIZ COUNTER (using localStorage to persist across sessions) ──
+const COUNTER_KEY = 'seagull_quiz_count';
+function getCount() {
+  return parseInt(localStorage.getItem(COUNTER_KEY) || '0');
+}
+function displayCount() {
+  const n = getCount();
+  const el = document.getElementById('quizCount');
+  if (el) el.textContent = n.toLocaleString();
+}
+// Listen for count updates from quiz page (via localStorage event)
+window.addEventListener('storage', e => {
+  if (e.key === COUNTER_KEY) displayCount();
+});
+displayCount();
+
+// ── COUNTDOWN to 2026/5/10 23:59:59 ──
+function updateCountdown() {
+  const end = new Date('2026-05-10T23:59:59+08:00').getTime();
+  const now = Date.now();
+  const diff = end - now;
+  if (diff <= 0) {
+    ['cdDay','cdHour','cdMin','cdSec'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = '00';
+    });
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const fmt = n => String(n).padStart(2, '0');
+  document.getElementById('cdDay').textContent = fmt(d);
+  document.getElementById('cdHour').textContent = fmt(h);
+  document.getElementById('cdMin').textContent = fmt(m);
+  document.getElementById('cdSec').textContent = fmt(s);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
