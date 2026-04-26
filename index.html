@@ -7,7 +7,7 @@
 
 <!-- Open Graph / Facebook 分享預覽 -->
 <meta property="og:type"        content="website" />
-<meta property="og:url"         content="https://annykono1-ux.github.io/mothers-day-quiz" />
+<meta property="og:url"         content="https://haiou-village.github.io/mothers-day-quiz" />
 <meta property="og:title"       content="💎 媽媽在您心中是哪顆寶石？｜海鷗漁村母親節測驗" />
 <meta property="og:description" content="每位媽媽都是獨一無二的珍寶！8 道生活小題，找出最適合她的那顆寶石，送她最適合的漁村美味 🐟 活動期間 4/27～5/10，完成測驗即有機會獲得神秘小禮！" />
 <meta property="og:image"       content="https://i.postimg.cc/SQpwnckw/og-image.jpg" />
@@ -939,9 +939,9 @@ function showResult() {
 
         <button class="cta-retry" onclick="retryQuiz()">再測一次</button>
         <div class="share-row">
-          <button class="share-btn s-fb" onclick="shareFB()">📘 分享</button>
-          <button class="share-btn s-line" onclick="shareLINE('${r.name}','${r.sub}')">💬 LINE</button>
-          <button class="share-btn s-copy" onclick="copyLink()">🔗 複製</button>
+          <button class="share-btn s-fb" onclick="shareFB()">📘 FB 分享</button>
+          <button class="share-btn s-line" onclick="nativeShare('${r.name}','${r.sub}')">📤 分享</button>
+          <button class="share-btn s-copy" onclick="copyLink()">🔗 複製連結</button>
         </div>
       </div>
     </div>
@@ -961,16 +961,52 @@ function retryQuiz() {
 }
 
 function shareFB() {
-  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+  const url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://haiou-village.github.io/mothers-day-quiz');
+  window.open(url, '_blank');
 }
 
 function shareLINE(name, sub) {
-  // 直接開啟海鷗漁村 LINE 官方帳號
-  window.open('https://lin.ee/v4WQITv', '_blank');
+  // 使用手機原生分享，fallback 到 LINE 官方帳號
+  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎\nhttps://haiou-village.github.io/mothers-day-quiz`;
+  if (navigator.share) {
+    navigator.share({
+      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
+      text: shareText,
+      url: 'https://haiou-village.github.io/mothers-day-quiz'
+    }).catch(() => {
+      window.open('https://lin.ee/v4WQITv', '_blank');
+    });
+  } else {
+    window.open('https://lin.ee/v4WQITv', '_blank');
+  }
+}
+
+function nativeShare(name, sub) {
+  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎`;
+  if (navigator.share) {
+    navigator.share({
+      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
+      text: shareText,
+      url: 'https://haiou-village.github.io/mothers-day-quiz'
+    });
+  } else {
+    copyLink();
+  }
 }
 
 function copyLink() {
-  navigator.clipboard.writeText(window.location.href).then(() => {
+  navigator.clipboard.writeText('https://haiou-village.github.io/mothers-day-quiz').then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }).catch(() => {
+    // fallback for older browsers
+    const el = document.createElement('textarea');
+    el.value = 'https://haiou-village.github.io/mothers-day-quiz';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
     const t = document.getElementById('toast');
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
