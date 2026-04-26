@@ -939,8 +939,7 @@ function showResult() {
 
         <button class="cta-retry" onclick="retryQuiz()">再測一次</button>
         <div class="share-row">
-          <a class="share-btn s-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhaiou-village.github.io%2Fmothers-day-quiz" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;text-decoration:none;">📘 FB 分享</a>
-          <button class="share-btn s-line" onclick="nativeShare('${r.name}','${r.sub}')">📤 分享</button>
+          <button class="share-btn s-fb" onclick="smartShare('${r.name}','${r.sub}')" id="smartShareBtn">📤 分享</button>
           <button class="share-btn s-copy" onclick="copyLink()">🔗 複製連結</button>
         </div>
       </div>
@@ -948,6 +947,14 @@ function showResult() {
   `;
 
   document.getElementById('resultWrap').classList.add('show');
+
+  // 根據裝置更新分享按鈕文字
+  setTimeout(() => {
+    const btn = document.getElementById('smartShareBtn');
+    if (btn) {
+      btn.textContent = isMobile() ? '📤 分享給朋友' : '📘 分享到 FB';
+    }
+  }, 100);
 }
 
 function retryQuiz() {
@@ -960,57 +967,65 @@ function retryQuiz() {
   loadQ(0);
 }
 
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
+
+function smartShare(name, sub) {
+  const shareUrl = 'https://haiou-village.github.io/mothers-day-quiz';
+  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎`;
+
+  if (isMobile() && navigator.share) {
+    // 手機：使用原生分享選單
+    navigator.share({
+      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
+      text: shareText,
+      url: shareUrl
+    }).catch(() => copyLink());
+  } else {
+    // 電腦：開啟 Facebook 分享
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+      '_blank', 'width=600,height=400'
+    );
+  }
+}
+
 function shareFB() {
-  const url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://haiou-village.github.io/mothers-day-quiz');
-  window.open(url, '_blank');
+  const shareUrl = 'https://haiou-village.github.io/mothers-day-quiz';
+  window.open(
+    'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+    '_blank', 'width=600,height=400'
+  );
 }
 
 function shareLINE(name, sub) {
-  // 使用手機原生分享，fallback 到 LINE 官方帳號
-  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎\nhttps://haiou-village.github.io/mothers-day-quiz`;
-  if (navigator.share) {
-    navigator.share({
-      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
-      text: shareText,
-      url: 'https://haiou-village.github.io/mothers-day-quiz'
-    }).catch(() => {
-      window.open('https://lin.ee/v4WQITv', '_blank');
-    });
-  } else {
-    window.open('https://lin.ee/v4WQITv', '_blank');
-  }
+  window.open('https://lin.ee/v4WQITv', '_blank');
 }
 
 function nativeShare(name, sub) {
-  const shareText = `我測出來了！我媽媽是「${name}」—— ${sub}。快來測測你的媽媽是哪顆寶石 💎`;
-  if (navigator.share) {
-    navigator.share({
-      title: '媽媽是哪顆寶石？｜海鷗漁村母親節',
-      text: shareText,
-      url: 'https://haiou-village.github.io/mothers-day-quiz'
-    });
-  } else {
-    copyLink();
-  }
+  smartShare(name, sub);
 }
 
 function copyLink() {
-  navigator.clipboard.writeText('https://haiou-village.github.io/mothers-day-quiz').then(() => {
-    const t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
-  }).catch(() => {
-    // fallback for older browsers
+  const url = 'https://haiou-village.github.io/mothers-day-quiz';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast());
+  } else {
     const el = document.createElement('textarea');
-    el.value = 'https://haiou-village.github.io/mothers-day-quiz';
+    el.value = url;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    const t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
-  });
+    showToast();
+  }
+}
+
+function showToast() {
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
 }
 </script>
 </body>
